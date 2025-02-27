@@ -12,6 +12,15 @@
  * edit it directly.
  */
 
+#define KC_CTSC RCTL_T(KC_SCLN)
+#define KC_CTLA LCTL_T(KC_A)
+#define KC_LSHZ LSFT_T(KC_Z)
+#define KC_RLSH RSFT_T(KC_SLSH)
+#define KC_SPM2 LT(2, KC_SPC)
+#define KC_BSM1 LT(1, KC_BSPC)
+#define KC_GUTA GUI_T(KC_TAB)
+#define KC_CLGV CTL_T(KC_GRV)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x5_2(
         QK_BOOT, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, LSFT_T(KC_A), LT(5,KC_S), LT(1,KC_D), LT(3,KC_F), KC_G, KC_H, LT(4,KC_J), LT(2,KC_K), LT(6,KC_L), LSFT_T(KC_SCLN), KC_Z, LCTL_T(KC_X), LALT_T(KC_C), KC_V, KC_B, KC_N, KC_M, LALT_T(KC_COMM), LCTL_T(KC_DOT), KC_SLSH, KC_P0, KC_BSPC, LT(7,KC_SPC), KC_P1
@@ -20,22 +29,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_BTN1, KC_WH_U, KC_BTN2, KC_TRNS, KC_TRNS, KC_BTN2, KC_NO, KC_BTN1, KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_WH_L, KC_WH_D, KC_WH_R, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
     [2] = LAYOUT_split_3x5_2(
-        KC_TRNS, KC_TRNS, KC_PGUP, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_UP, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS, KC_LGUI, KC_NO, LCTL(KC_LALT), LCA(KC_LSFT), KC_TRNS, KC_HOME, KC_PGDN, KC_END, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,           KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,
+        KC_TAB,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,         KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_PIPE,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,         KC_UNDS, KC_PLUS, KC_TRNS, KC_TRNS, QK_BOOT,
+                                    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
     [3] = LAYOUT_split_3x5_2(
-        KC_TRNS, KC_Z, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_UNDS, KC_PIPE, KC_QUOT, KC_TRNS, KC_CIRC, KC_ASTR, KC_AMPR, KC_NO, KC_TRNS, KC_HASH, KC_TILD, KC_SLSH, KC_DQUO, KC_DLR, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MINS, KC_BSLS, KC_GRV, KC_TRNS, RM_PREV, KC_TRNS, KC_TRNS, RM_NEXT
-    ),
-    [4] = LAYOUT_split_3x5_2(
-        KC_TRNS, KC_COLN, KC_LT, KC_GT, KC_SCLN, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_AT, KC_TRNS, KC_NO, KC_EQL, KC_PLUS, KC_PERC, KC_TRNS, KC_EXLM, KC_LBRC, KC_RBRC, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_VOLD, KC_TRNS, KC_TRNS, KC_VOLU
-    ),
-    [5] = LAYOUT_split_3x5_2(
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_F7, KC_F8, KC_F9, KC_F10, KC_TRNS, KC_NO, LCTL(KC_LALT), KC_TRNS, KC_TRNS, KC_TRNS, KC_F4, KC_F5, KC_F6, KC_F11, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_F1, KC_F2, KC_F3, KC_F12, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
-    ),
-    [6] = LAYOUT_split_3x5_2(
-        KC_PSLS, KC_7, KC_8, KC_9, KC_PPLS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_0, KC_1, KC_2, KC_3, KC_PMNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_PAST, KC_4, KC_5, KC_6, KC_PEQL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
-    ),
-    [7] = LAYOUT_split_3x5_2(
-        KC_TRNS, KC_TRNS, KC_COLN, KC_ESC, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_DEL, KC_TRNS, KC_PERC, KC_SLSH, KC_ENT, KC_TRNS, DF(1), KC_LGUI, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_EXLM, KC_TRNS, DF(0), KC_TRNS, RALT_T(KC_COMM), RCTL_T(KC_DOT), QK_BOOT, KC_TRNS, KC_TAB, KC_NO, KC_TRNS
+        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,            KC_Y,    KC_U,  KC_I,    KC_O,   KC_P,
+        KC_CTLA, KC_S,    KC_D,    KC_F,    KC_G,            KC_H,    KC_J,  KC_K,    KC_L,   KC_SCLN,
+        KC_LSHZ, KC_X,    KC_C,    KC_V,    KC_B,            KC_N,    KC_M,  KC_COMM, KC_DOT, KC_RLSH,
+                                    KC_CLGV, KC_BSM1, KC_SPM2, KC_GUTA
+
     )
 };
 
@@ -53,26 +57,25 @@ void keyboard_post_init_user(void) {
 
 // The following code was printing debug statements but not switching layers
 void raw_hid_receive(uint8_t *data, uint8_t length) {
+    dprintf("\nReceived raw HID packet (length=%d):\n", length);
     // Print every byte received
     for (uint8_t i = 0; i < length; i++) {
         dprintf("data[%d] = 0x%02X\n", i, data[i]);
     }
 
-    switch(data[0]) {
-        case 0x40: {  // Get current layer
-            data[0] = (uint8_t)get_highest_layer(layer_state);
-            dprintf("Get layer: current=%d\n", data[0]);
-            raw_hid_send(data, length);
-            break;
-        }
+    dprintf("Current layer state: 0x%08X\n", (unsigned int)layer_state);
+    dprintf("Highest active layer: %d\n", get_highest_layer(layer_state));
 
-        case 0x00: {  // Layer switch command
-            uint8_t target_layer = data[1];
-            dprintf("Layer switch request to %d\n", target_layer);
+    uint8_t command = data[0];  // Command is in first byte
+    uint8_t layer = data[1];    // Layer is in second byte
 
-            if (target_layer <= 3) {
+    switch(command) {
+        case 0x03: {  // Layer switch command
+            dprintf("Command: Layer switch (0x00) to layer %d\n", layer);
+
+            if (layer <= 3) {
                 layer_clear();  // Clear all layers first
-                layer_on(target_layer);  // Force the layer on
+                layer_move(0);  // Force the layer to 0 (colemak-dh)
                 
                 uint8_t current = get_highest_layer(layer_state);
                 dprintf("New layer: %d\n", current);
@@ -82,20 +85,28 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
                 data[0] = 0x00;        // Success
                 data[1] = current;      // Current layer
                 data[2] = 0xAA;        // Acknowledgment
+                
+                dprintf("Layer switch successful\n");
             } else {
+                dprintf("Invalid layer %d requested\n", layer);
                 memset(data, 0, length);
                 data[0] = 0xFF;  // Error
             }
             
-            // Always send response
             dprintf("Sending response\n");
             raw_hid_send(data, length);
             break;
         }
 
         default: {
-            dprintf("Unknown command: 0x%02X\n", data[0]);
-            // Send error response for unknown commands
+            dprintf("Switching to qwerty\n");
+
+            layer_clear();  // Clear all layers first
+            layer_move(3);  // Force the layer to 3 (qwerty)
+            
+            uint8_t current = get_highest_layer(layer_state);
+            dprintf("New layer: %d\n", current);
+
             memset(data, 0, length);
             data[0] = 0xFF;
             raw_hid_send(data, length);
@@ -103,3 +114,6 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
         }
     }
 }
+
+// compile
+// qmk compile -c -kb ferris/sweep -km default -e CONVERT_TO=rp2040_ce
