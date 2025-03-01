@@ -226,7 +226,6 @@ void keyboard_post_init_user(void) {
   //debug_mouse=true;
 }
 
-// The following code was printing debug statements but not switching layers
 void raw_hid_receive(uint8_t *data, uint8_t length) {
     dprintf("\nReceived raw HID packet (length=%d):\n", length);
     // Print every byte received
@@ -247,7 +246,7 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
             if (layer <= 3) {
                 layer_clear();  // Clear all layers first
                 layer_move(0);  // Force the layer to 0 (colemak-dh)
-                
+
                 uint8_t current = get_highest_layer(layer_state);
                 dprintf("New layer: %d\n", current);
 
@@ -256,14 +255,14 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
                 data[0] = 0x00;        // Success
                 data[1] = current;      // Current layer
                 data[2] = 0xAA;        // Acknowledgment
-                
+
                 dprintf("Layer switch successful\n");
             } else {
                 dprintf("Invalid layer %d requested\n", layer);
                 memset(data, 0, length);
                 data[0] = 0xFF;  // Error
             }
-            
+
             dprintf("Sending response\n");
             raw_hid_send(data, length);
             break;
@@ -274,7 +273,7 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
 
             layer_clear();  // Clear all layers first
             layer_move(3);  // Force the layer to 3 (qwerty)
-            
+
             uint8_t current = get_highest_layer(layer_state);
             dprintf("New layer: %d\n", current);
 
