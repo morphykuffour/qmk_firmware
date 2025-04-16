@@ -3,3 +3,5 @@ DEFERRED_EXEC_ENABLE = yes
 OS_DETECTION_ENABLE = yes
 RAW_ENABLE = yes
 CONSOLE_ENABLE = yes  # For debug prints
+VIA_ENABLE = yes
+VIAL_ENABLE = yes

@@ -226,7 +226,8 @@ void keyboard_post_init_user(void) {
   //debug_mouse=true;
 }
 
-void raw_hid_receive(uint8_t *data, uint8_t length) {
+// void raw_hid_receive(uint8_t *data, uint8_t length) {
+void raw_hid_receive_kb(uint8_t *data, uint8_t length) {
     dprintf("\nReceived raw HID packet (length=%d):\n", length);
     // Print every byte received
     for (uint8_t i = 0; i < length; i++) {
@@ -270,7 +271,7 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
 
         default: {
             dprintf("Received unrecognized command: 0x%02X\n", command);
-            
+
             // Just respond with an error code without changing layers
             memset(data, 0, length);
             data[0] = 0xFF;  // Error/unrecognized command
