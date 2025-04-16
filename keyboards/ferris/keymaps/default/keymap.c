@@ -269,16 +269,11 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
         }
 
         default: {
-            dprintf("Switching to qwerty\n");
-
-            layer_clear();  // Clear all layers first
-            layer_move(3);  // Force the layer to 3 (qwerty)
-
-            uint8_t current = get_highest_layer(layer_state);
-            dprintf("New layer: %d\n", current);
-
+            dprintf("Received unrecognized command: 0x%02X\n", command);
+            
+            // Just respond with an error code without changing layers
             memset(data, 0, length);
-            data[0] = 0xFF;
+            data[0] = 0xFF;  // Error/unrecognized command
             raw_hid_send(data, length);
             break;
         }
